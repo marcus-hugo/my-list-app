@@ -1,7 +1,11 @@
 :root {
     --clr-dark: #212121;
     --clr-light: #f5f5f5;
-    --clr-bg: ;
+    --clr-grey-100: #d5d5d5;
+    --clr-grey-500: #888;
+    --clr-acc-500: #ffa000;
+    --clr-acc-800: #ff8f00;
+    --clr-acc-900: #ff5722;
 }
 
 *,
@@ -14,7 +18,7 @@
 body {
     margin: 0;
     padding: 0 1rem;
-    background: var(--clr-light);
+    background: #efefef;
     color: var(--clr-dark);
     font-family: 'Open Sans', sans-serif;
 }
@@ -25,12 +29,17 @@ main {
 }
 
 body.dark-theme {
+    background: #212121;
+    color: #f5f5f5;
+}
+
+li.dark-theme {
     background: var(--clr-dark);
     color: var(--clr-light);
 }
 
-li.dark-theme {
-    background: #212121;
+*:focus {
+    outline: 3px dashed var(--clr-acc-900);
 }
 
 input {
@@ -38,10 +47,7 @@ input {
     border-radius: 3px 0 0 3px;
     padding-left: 10px;
     font-size: 1rem;
-}
-
-input:focus {
-    outline: none;
+    background: #f0f0f0;
 }
 
 input, button {
@@ -50,6 +56,8 @@ input, button {
 
 button {
     padding: 5px 10px;
+    width: 90px;
+    font-weight: bold;
 }
 
 button:hover {
@@ -64,30 +72,33 @@ button:hover {
 
 h1 {
     display: inline;
+    font-size: 3rem;
+    background: -webkit-linear-gradient(0deg, var(--clr-acc-900), var(--clr-acc-500));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #dark-mode-button {
     border-radius: 3px;
-}
-#dark-mode-button:hover {
-    color: #fff;
-    background:midnightblue;
+    background: var(--clr-acc-900);
+    color: #3f3f3f;
 }
 
 .input-container {
     display: flex;
-    justify-content: space-between;
 }
 
 #add-item-button {
     cursor: pointer;
     padding: 8px 16px;
     border-radius: 0 3px 3px 0;
+    background: var(--clr-grey-100);
+    flex-shrink: 0;
 }
 
 #add-item-button:hover {
-    color:#fff;
-    background:darkolivegreen;
+    background: var(--clr-acc-800);
 }
 
 .ul {
@@ -107,8 +118,8 @@ li {
 }
 
 li.checked {
-    background: #888;
-    color: #fff;
+    background: var(--clr-grey-500);
+    color: var(--clr-light);
 }
 
 li.checked::before {
@@ -130,9 +141,13 @@ li p {
 
 li p:hover {
     cursor: pointer;
-    color: #fff;
-    background: lightseagreen;
+    color: var(--clr-light);
+    background: var(--clr-acc-800);
     border-radius: 3px;
+}
+
+li p:focus {
+    outline: 3px dashed var(--clr-acc-900);
 }
 
 .delete-button {
@@ -144,6 +159,6 @@ li p:hover {
 }
 
 .delete-button:hover {
-    background: orangered;
-    color: #fff;
+    background: var(--clr-acc-900);
+    color: var(--clr-light);
 }
