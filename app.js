@@ -27,23 +27,38 @@ darkModeBtn.addEventListener('click', function() {
     }
 })
 
-// Mouseover
-darkModeBtn.addEventListener('mouseover', (e) => {
+// Mouse Enter
+darkModeBtn.addEventListener('mouseenter', () => {
     let mode = localStorage.getItem('darkMode');
 
     if ( mode === 'true') {
         darkModeBtn.innerText = 'Light'
         darkModeBtn.style.color = '#f5f5f5'
+        darkModeBtn.style.background = '#512da8'
+        darkModeBtn.style.border = 'none'
     } else {
         darkModeBtn.innerText = 'Dark'
-        darkModeBtn.style.color = '#212121'
+        darkModeBtn.style.color = '#000000'
+        darkModeBtn.style.background = '#d1c4e9'
     }
 })
 
-// Mouseout
-darkModeBtn.addEventListener('mouseout', (e) => {
-    darkModeBtn.innerText='Theme'
-    darkModeBtn.style.color = '#3f3f3f'
+// Mouse Out
+darkModeBtn.addEventListener('mouseout', () => {
+    let mode = localStorage.getItem('darkMode');
+
+    if ( mode === 'false') {
+        darkModeBtn.innerText = 'Theme'
+        darkModeBtn.style.color = '#525252'
+        darkModeBtn.style.borderColor = '#525252'
+        darkModeBtn.style.background = 'initial'
+    } else {
+        darkModeBtn.innerText = 'Theme'
+        darkModeBtn.style.background = 'initial'
+        darkModeBtn.style.borderColor = '#525252'
+        darkModeBtn.style.color = '#8a8a8a'
+
+    }
 })
 
 // Add button pushes input value to itemsArr
