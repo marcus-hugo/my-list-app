@@ -25,6 +25,16 @@ darkModeBtn.addEventListener('click', function() {
     } else {
         localStorage.setItem('darkMode', 'false')
     }
+
+    let mode = localStorage.getItem('darkMode');
+
+    if ( mode === 'true') {
+        darkModeBtn.style.color = '#000'
+        darkModeBtn.style.background = '#f5f5f5'
+    } else {
+        darkModeBtn.style.color = '#f5f5f5'
+        darkModeBtn.style.background = '#000'
+    }
 })
 
 // Mouse Enter
@@ -34,12 +44,12 @@ darkModeBtn.addEventListener('mouseenter', () => {
     if ( mode === 'true') {
         darkModeBtn.innerText = 'Light'
         darkModeBtn.style.color = '#f5f5f5'
-        darkModeBtn.style.background = '#512da8'
+        // darkModeBtn.style.background = '#525252'
         darkModeBtn.style.border = 'none'
     } else {
         darkModeBtn.innerText = 'Dark'
         darkModeBtn.style.color = '#000000'
-        darkModeBtn.style.background = '#d1c4e9'
+        // darkModeBtn.style.background = '#525252'
     }
 })
 
