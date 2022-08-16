@@ -8,66 +8,46 @@ const ul = document.querySelector('.ul');
 const li = document.querySelector('li');
 const lis = document.querySelectorAll('li');
 const itemsArr = [];
+let darkMode = localStorage.getItem('darkMode');
 
-// Set local storage for theme
-localStorage.setItem('darkMode', 'false')
+if (darkMode === 'true') {
+    darkModeBtn.classList.contains('dark-theme') ? 
+    darkModeBtn.innerText = 'Light' : 
+    darkModeBtn.innerText = "Dark"
+
+    body.classList.add('dark-theme')
+    darkModeBtn.classList.add('dark-theme')
+
+    for (let li of lis) {
+        li.classList.add('dark-theme')
+    }
+} else {
+    body.classList.remove('dark-theme')
+    darkModeBtn.classList.remove('dark-theme')
+    
+    for (let li of lis) {
+        li.classList.remove('dark-theme')
+    }
+}
 
 // Dark mode toggle
 darkModeBtn.addEventListener('click', function() {
     body.classList.toggle('dark-theme')
-    
+    darkModeBtn.classList.toggle('dark-theme')
+
     for (let li of lis) {
-        li.classList.toggle('dark-mode')
+        li.classList.toggle('dark-theme')
     }
-    // reset local storage
+    
+    darkModeBtn.classList.contains('dark-theme') ? 
+    darkModeBtn.innerText = 'Light' : 
+    darkModeBtn.innerText = "Dark"
+
+     // reset local storage
     if (body.classList.contains('dark-theme')) {
         localStorage.setItem('darkMode', 'true')
     } else {
         localStorage.setItem('darkMode', 'false')
-    }
-
-    let mode = localStorage.getItem('darkMode');
-
-    if ( mode === 'true') {
-        darkModeBtn.style.color = '#000'
-        darkModeBtn.style.background = '#f5f5f5'
-    } else {
-        darkModeBtn.style.color = '#f5f5f5'
-        darkModeBtn.style.background = '#000'
-    }
-})
-
-// Mouse Enter
-darkModeBtn.addEventListener('mouseenter', () => {
-    let mode = localStorage.getItem('darkMode');
-
-    if ( mode === 'true') {
-        darkModeBtn.innerText = 'Light'
-        darkModeBtn.style.color = '#f5f5f5'
-        // darkModeBtn.style.background = '#525252'
-        darkModeBtn.style.border = 'none'
-    } else {
-        darkModeBtn.innerText = 'Dark'
-        darkModeBtn.style.color = '#000000'
-        // darkModeBtn.style.background = '#525252'
-    }
-})
-
-// Mouse Out
-darkModeBtn.addEventListener('mouseout', () => {
-    let mode = localStorage.getItem('darkMode');
-
-    if ( mode === 'false') {
-        darkModeBtn.innerText = 'Theme'
-        darkModeBtn.style.color = '#525252'
-        darkModeBtn.style.borderColor = '#525252'
-        darkModeBtn.style.background = 'initial'
-    } else {
-        darkModeBtn.innerText = 'Theme'
-        darkModeBtn.style.background = 'initial'
-        darkModeBtn.style.borderColor = '#525252'
-        darkModeBtn.style.color = '#8a8a8a'
-
     }
 })
 
